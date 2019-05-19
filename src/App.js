@@ -5,7 +5,7 @@ import { Router, Link } from "@reach/router";
 import Details from "./Details";
 import SearchParams from "./SearchParams";
 import pf from "petfinder-client";
-import {Provider} from "./SearchContext";
+import { Provider } from "./SearchContext";
 
 const petfinder = pf({
   key : process.env.API_KEY,
@@ -27,18 +27,18 @@ class App extends React.Component {
 
     };
   }
-  LocationHandle = event =>{
+  LocationHandle = event => {
     this.setState({
         location : event.target.value
     })
 }
-handleAnimalChange = event =>{
+handleAnimalChange = event => { 
     this.setState({
         animal: event.target.value,
         breed : ""
     }, this.getBreeds);
 };
-handleBreedChange = event =>{
+handleBreedChange = event => {
     this.setState({
         breed : event.target.value
     });
@@ -74,12 +74,12 @@ getBreeds() {
           <Link to ="/">Adopt Me!</Link>
        </header>
        <Provider value = {this.state}>
-       <Router>
+          <Router>
          
-         <Result path = "/"/>
-       <Details path = "/details/:id"/>
-       <SearchParams path = "/search" />
-       </Router>
+            <Result path = "/"/>
+            <Details path = "/details/:id"/>
+            <SearchParams path = "/search" />
+          </Router>
        </Provider>
        
      </div>
@@ -91,4 +91,4 @@ getBreeds() {
 
 
 
-render(<App/>, document.getElementById("root"));
+ReactDOM.render(<App/>, document.getElementById("root"));

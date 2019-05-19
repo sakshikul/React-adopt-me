@@ -17,7 +17,7 @@ class SearchParams extends React.Component{
     render(){
         return(
 <Consumer>
-    {context => (
+    {context =>(
  <div className = "search-params">
  <label htmlFor = "location">
  Location
@@ -65,11 +65,16 @@ onBlur={this.handleBreedChange}
  
  
  </div>
-    )}
-           
-            </Consumer>
-        )
+    )
     }
+
+ </Consumer>
+    )
 }
+           
+            
+        
+    }
+
 
 export default SearchParams;
